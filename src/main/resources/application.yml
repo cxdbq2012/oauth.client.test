@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+#    org.springframework.boot.autoconfigure: DEBUG
+
+spring:
+#  thymeleaf:
+#    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 346145705790-g3mqrae7fft4hque6ptj4og0tu9p066u.apps.googleusercontent.com
+            client-secret: MCAIdPGDz52taB6kkqyOPY2q
+          github:
+            client-id: your-app-client-id
+            client-secret: your-app-client-secret
+          facebook:
+            client-id: your-app-client-id
+            client-secret: your-app-client-secret
+          mytest:
+            client-id: test
+            client-secret: secret
+            authorization-grant-type: "authorization_code"
+            scope: "resource:read"
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          mytest:
+            authorization-uri: http://localhost2:8083/oauth/authorize
+            token-uri: http://localhost2:8083/oauth/token
+            user-info-uri: http://localhost:8083/oauth/userinfo
+            jwk-set-uri: http://localhost2:8083/.well-known/jwks.json
+            user-name-attribute: sub

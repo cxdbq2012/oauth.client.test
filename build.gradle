@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+//    id 'com.gradle.build-scan' version '2.0.2'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+
+group 'com.yikemm'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+//ext['spring-security.version']='5.2.0.RELEASE'
+//ext['spring.version']='5.2.0.RELEASE'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.2.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.springframework.boot:spring-boot-starter-security"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+//    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
+
+
+    implementation "org.springframework.security:spring-security-oauth2-core"
+    implementation "org.springframework.security:spring-security-oauth2-client"
+    implementation "org.springframework.security:spring-security-oauth2-jose"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    implementation group:'com.ikamobile',name:'flight-vendor',version:'ibe.SNAPSHOT'
+}
